@@ -6,7 +6,10 @@ export default {
   build: {
     outDir: path.join(__dirname, "dist"),
     rollupOptions: {
-      input: glob.sync(path.resolve(__dirname, "src/*", "*.html")),
+      input: [
+        ...glob.sync(path.resolve(__dirname, "src", "*.html")),
+        ...glob.sync(path.resolve(__dirname, "src/*", "*.html"))
+      ],
     },
   },
 };
